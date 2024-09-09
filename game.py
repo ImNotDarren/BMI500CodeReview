@@ -1,13 +1,16 @@
 import random
 
+# This is a ‘Rock, Paper, Scissors’ game
 choices = ['rock', 'paper', 'scissors']
 
 
+# Player class to represent the player's name and score
 class Player:
     def __init__(self, name):
         self.name = name
         self.score = 0
 
+    # Player randomly chooses either "rock", "paper", or "scissors"
     def play(self):
         return random.choice(choices)
 
@@ -18,12 +21,13 @@ class Player:
         return f"{self.name} has {self.score} points."
 
 
+# Function to determine the winner of a round
 def determine_winner(player1, player2):
     if player1 == player2:
         return -1
     elif (player1 == "rock" and player2 == "scissors") or \
-         (player1 == "scissors" and player2 == "paper") or \
-         (player1 == "paper" and player2 == "rock"):
+            (player1 == "scissors" and player2 == "paper") or \
+            (player1 == "paper" and player2 == "rock"):
         return 1
     else:
         return 0
@@ -60,12 +64,15 @@ def play_game():
 
         print('-' * 30)
 
+        # Check if Player 1 has reached 2 points and won the game
         if player1.score == 2:
             print(f"{player1.name} wins!")
-            exit()
+            break
+
+        # Check if the Computer has reached 2 points and won the game
         if player2.score == 2:
             print(f"{player2.name} wins!")
-            exit()
+            break
 
 
 if __name__ == '__main__':
